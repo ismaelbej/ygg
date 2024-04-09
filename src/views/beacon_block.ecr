@@ -1,0 +1,42 @@
+<h2>Execution witness</h2>
+
+<h3>State diff</h3>
+<table>
+	<tr>
+		<th>Stem</th>
+		<th>Suffix Diff</th>
+	</tr>
+	<% stem_diffs.each do |stem_diff| %>
+		<% stem_diff.suffix_diffs.each_with_index do |suffix_diff, index| %>
+			<tr class="<%= stem_diff.row_class(index) %>">
+				<% if index == 0 %>
+					<td rowspan="<%= stem_diff.suffix_diffs.size %>">
+						<%= stem_diff.stem %>
+					</td>
+				<% end %>
+				<td class="suffix">
+					<%= suffix_diff.suffix %>
+				</td>
+			</tr>
+		<% end %>
+	<% end %>
+</table>
+
+<h3>Raw execution witness</h3>
+<code>
+	<pre id="beacon-block-execution-witness">
+	</pre>
+</code>
+
+<h2>Raw Beacon API JSON</h2>
+<code>
+	<pre id="beacon-block-json">
+	</pre>
+</code>
+
+<script>
+	window.onload = () => {
+		renderJson('beacon-block-execution-witness', '<%= execution_witness %>');
+		renderJson('beacon-block-json', '<%= content %>');
+	};
+</script>

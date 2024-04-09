@@ -1,0 +1,17 @@
+name: ygg
+version: 0.1.0
+
+authors:
+  - Martin Verzilli <martin.verzilli@gmail.com>
+
+targets:
+  ygg:
+    main: src/ygg.cr
+
+crystal: '>= 1.11.2'
+
+license: MIT
+
+dependencies:
+  frost:
+    github: kemalcr/kemal
