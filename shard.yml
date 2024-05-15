@@ -1,17 +1,19 @@
-name: ygg
+name: ygg-block
 version: 0.1.0
 
 authors:
-  - Martin Verzilli <martin.verzilli@gmail.com>
+  - Ismael Bejarano <ismael.bejarano@manas.tech>
 
 targets:
   ygg:
-    main: src/ygg.cr
+    main: src/ygg-block.cr
 
 crystal: '>= 1.11.2'
 
 license: MIT
 
 dependencies:
-  frost:
+  dotenv:
+    github: gdotdesign/cr-dotenv
+  kemal:
     github: kemalcr/kemal

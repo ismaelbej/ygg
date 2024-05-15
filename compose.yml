@@ -1,0 +1,17 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: dev
+    command: /bin/sh -c "cd /app && shards install && crystal build ./src/ygg-blocks.cr && /app/ygg-blocks"
+    volumes:
+      - .:/app
+      - crystal_shards:/root/.cache
+    ports:
+      - "3000:3000"
+    environment:
+      - RPC_NODE=${RPC_NODE}
+
+volumes:
+  crystal_shards:
